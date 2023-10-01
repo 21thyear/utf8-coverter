@@ -12,21 +12,18 @@ int main() {
     std::cout << "Write path to file in encoding  (Windows-1251): ";
     std::cin >> outputFileName;
 
-    // Открываем входной файл в режиме бинарного чтения
     std::ifstream inputFile(inputFileName, std::ios::binary);
     if (!inputFile.is_open()) {
         std::cerr << "I can't open imported file" << std::endl;
         return 1;
     }
 
-    // Открываем выходной файл в режиме бинарной записи
     std::ofstream outputFile(outputFileName, std::ios::binary);
     if (!outputFile.is_open()) {
         std::cerr << "I can't open exported file." << std::endl;
         return 1;
     }
 
-    // Читаем и конвертируем содержимое входного файла и записываем его в выходной файл
     std::string line;
 
     while (std::getline(inputFile, line)) {
@@ -45,7 +42,6 @@ int main() {
         }
     }
 
-    // Закрываем файлы
     inputFile.close();
     outputFile.close();
 
