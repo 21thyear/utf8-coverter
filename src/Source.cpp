@@ -15,13 +15,13 @@ int main() {
     std::ifstream inputFile(inputFileName, std::ios::binary);
     if (!inputFile.is_open()) {
         std::cerr << "I can't open imported file" << std::endl;
-        return 1;
+        return true;
     }
 
     std::ofstream outputFile(outputFileName, std::ios::binary);
     if (!outputFile.is_open()) {
         std::cerr << "I can't open exported file." << std::endl;
-        return 1;
+        return true;
     }
 
     std::string line;
@@ -47,5 +47,5 @@ int main() {
 
     std::cout << "Convertation successfull!" << std::endl;
 
-    return 0;
+    return false;
 }
